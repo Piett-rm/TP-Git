@@ -13,5 +13,17 @@ pipeline {
                 archiveArtifacts artifacts: 'index.html', followSymlinks: false
             }
         }
+
+        stage('Build Image') {
+            steps {
+                bat "docker build -t some-content-nginx ."
+            }
+        }
+
+        stage('Run Docker') {
+            steps {
+                bat "docker run --name some-nginx -d -p 8081:80 some-content-nginx"
+            }
+        }
     }
 }
