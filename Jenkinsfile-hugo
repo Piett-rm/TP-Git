@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Doc') {
             steps {
-                mkdir(dir:"./doc/")
+                sh 'mkdir ./doc/'
                 sh  'cat *.md > doc/README.md'
             }
         }
