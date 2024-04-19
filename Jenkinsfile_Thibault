@@ -7,14 +7,12 @@ pipeline {
                 echo 'Hello, World!'
             }
         }
-    }
-        stages {
         stage('merge') {
             steps {
                 bat "type *.md > manuel.md"
             }
             post {
-                succes {
+                success {
                     archiveArtifacts "manuel.md"
                 }
             }
