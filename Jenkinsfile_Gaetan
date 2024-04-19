@@ -1,0 +1,18 @@
+pipeline {
+	agent any
+
+	stages {
+		stage('Better Readme') {
+			steps {
+				sh '''
+					cat ./*.md >> ./BigReadme.md
+				'''
+			}
+		}
+		stage('Read the Better Readme') {
+			steps {
+				sh 'cat ./BigReadme.md'
+			}
+		}
+	}
+}
