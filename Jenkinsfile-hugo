@@ -21,6 +21,12 @@ pipeline {
                 sh  'docker build -t readmefy ./Dockerfile_hugo'
             }
         }
+        stage('Docker Publish') {
+            steps {
+                sh 'docker tag readmefy:latest 475736471941.dkr.ecr.us-east-1.amazonaws.com/readmefy:latest'
+                sh 'docker push 475736471941.dkr.ecr.us-east-1.amazonaws.com/readmefy:latest'
+            }
+        }
     }
 }
 
