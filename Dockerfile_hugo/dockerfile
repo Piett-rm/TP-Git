@@ -1,0 +1,3 @@
+FROM nginx
+
+COPY FeatureManual.md /usr/share/nginx/html/
