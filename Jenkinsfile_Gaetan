@@ -22,7 +22,7 @@ pipeline {
 		}
 		stage('Read the Better Readme') {
 			steps {
-				sh 'cat ./BigReadme.md"
+				sh 'cat ./BigReadme.md'
 			}
 		}
 	}
