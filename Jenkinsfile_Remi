@@ -2,10 +2,32 @@ pipeline {
     agent any
     
     stages {
-        stage('Hello World') {
+        stage('Connect AWS') {
             steps {
-                echo 'Hello, World!'
-            }
+                script {
+                    sh 'echo eyJwYXlsb2FkIjoiUXdBazlhck9aTjQ5cVlVbEVXUFBCUVZMUnNXQkp5RnZlblUrVDFqWWV2clZJUTVaTUh5dy9Vb0Z2eFFReXJMY2V3R2dxZVlqRkllOUZLUHkxaDdMYUVDcnJxVkNsOTBrS3pOc3ZJV2JFNUQ4TVhvbzJYaWFZZlJoQldZbTRZdjVMK2RxTnlhMzFDa3ZLOG1qZHRYNmRyekRpZHpwUXlDTjh6aWtLcnlmTHcxcUtWSUt5ajdyK1d1b0xtWXZZWnd1UWdYYUR4Z3NuUjNHWkp6QUJQMFRVUHdHUmEvWVdUL0pQaUpVcjdpclRjb0Z2Q2s4MmdsSFJTTHBFdk9JY1NYOHZxWnhyOVRpZFVWVCtUcEVwY2xtd21tQ2puVTBDZmdzZUZ4TzF1ZVg4OWFOUFErV1FDUFpCdHdOOWFHYUhkbFhKSXdMVkJKRGtvQ1FNMVU4UkdJV3ZJMU0wK28rS2k0dW4xYzZZUkQzNkpnZllqeW1NaVhsbTgvWnNOWklkNlYzYUg3a1BVdDg0T2U1STlOSFJ4MkFlY0I3MDZURmd6UWQwZnFRcVBjSDJIZ1JiTzFnTmdtQXpiWkw2MGNOL0JmZ2JoR0Q3ZHR6QkdDaUZjYXQ5cDNxdnVZVkpzRDVwT003KzdtT3NrRFhwc0lSWjh4MmJFdy9zOTMzUzNCdzRkVmF2MmxVazFvV3M4aVFFUTQxUjBEb1dVUDhDQ0ZXTE51ZnhaVC82bGxLMnc2VW9nL3A3ZzBzUUNpWk5kdTk1c2xUTFJqTDdtTTNGSTFLMGs2cDR5c1hnOUFUbisyZzVIelg0WXB6U3ZiYVhXWHZ5andwVHFGWmxvc05PWkdwdklrRVZCc3V0bWxUa2grTGJwTTdMektTOERYMnVUL1A1dmFQRkFMQzMvUlRSc0VFell6MTlMWWNIN1RXMGJGWWtTcC9ub0ZvUUJnck9OSzhJOUluTzBib0c2ODhnQWd0YVdUSmM5Mk5uSlAvV1VwL2p6UzEwR0IrOGgyRUJuN0ZWYXZiQWtiOTA0UUhleERObHcvM3c0bVZnOGo1R2c0ZDNKcjRXOTljU3VCTDR5Q2RLMzZLRllEUFZVbUl2NmgrdC9sSU9QQ1hwS2hkQk9mVmxyOGk4Q3FhMnZDd0FLM1ZueHJENzNFUDI0YlkvTWZSM2V4MEJWUnIrSnhQK0RuaGJla1FqYUpVZ281Y3VkcU5Cb3FMWUFrdWpieXVsQUdLMER2K2FPa0NpWjdvWFJ3UFpRODdyV3Jtek5uRkZ3NkpxUzdaMjlURmhVb2ZTMmRhVjFwcHNNaWJUR3ZDSlR5MHU5NGJSdEN6N1ozakRKUzliK2x2MDVULzdVQlVIT2Q5L2VPb3FSUEgwb3ZBUHVPSjNXUld2ZnEySmp6S20xeFB3aElMS1ErVXRSZFV2Z3IrTXpBZHdaTUQ0TWE4VUdFRUxjNkV3eTRYRVlNNjFxV1RZWUFVTkxMQXhCQktTQkl5Q3JNdURZWFgyUFdOUmk0aHFhZ2xyaXhWdnZFd3JkVXFaeElmZkRWYjhiZmVrbEliRGVSMm1wRUJOUXkyTFpWTWttQnJKZGNnTjlFcmtzK1JCelEwM3V3ckhOUExzQ2dvT1dNRWV0WDdwK0VJMmdEZW4xS1dLejBNeGlzR1JnbGw1RSs1UXcxUFk1OHc4d1F1K3l1YklTTThMYzVXU0JLSTEwd09ROWV5VUNUcmcxWFR4UDR4c0F1N0htVGFZS0ZKeU1PL3loemkrU3BIZzNHV2ZsZjlwckhDVVREMHFocUJXMHU4UlpwUWMrRVN3NjJDdjJGK3p5L2RNSnlEWjV4NnJLQXFuaXhmb2lzVytCZnQxL1FETmN1UUZHT2R6YzMzWXNKZ0NGWkIrMUNtRFpxSmErSkE3aFBrbDlCdmRjamhFai9aSklzelVaTzFwbUZHTG41NE05SHYxcC9VQmozbVVMWEs0ekVxNzVnVnoyT0Zxd2xsUjE0V0FrbHU5ME1xIiwiZGF0YWtleSI6IkFRRUJBSGh3bTBZYUlTSmVSdEptNW4xRzZ1cWVla1h1b1hYUGU1VUZjZTlScTgvMTR3QUFBSDR3ZkFZSktvWklodmNOQVFjR29HOHdiUUlCQURCb0Jna3Foa2lHOXcwQkJ3RXdIZ1lKWUlaSUFXVURCQUV1TUJFRUROZm52aTNnT3BWTGY5VTJYQUlCRUlBN0pnM2lERFBGT3NlTXVoQnZvUTNnSkE4UXRDZkFxMG1YVnRENW13RndrMmVaSzg0NkZIZUhBYTZLRzRsQTZzRURsbFRyLy9tckxJQ0VJbDA9IiwidmVyc2lvbiI6IjIiLCJ0eXBlIjoiREFUQV9LRVkiLCJleHBpcmF0aW9uIjoxNzEzNTc3OTYzfQ== | docker login --username AWS --password-stdin 065334477167.dkr.ecr.us-east-1.amazonaws.com'
+                }
+            } 
+        }
+        stage('Docker build and publish') {
+			steps {
+				dir('./AppRemi') {
+					sh '''
+						docker build -t tp-integration:latest .
+						docker tag tp-integration:latest 065334477167.dkr.ecr.us-east-1.amazonaws.com/tp-integration:latest
+						docker push 065334477167.dkr.ecr.us-east-1.amazonaws.com/tp-integration:latest
+					'''
+				}
+			}
+		}
+    }
+   
+    post {
+        success {
+            echo 'Build successful!'
+        }
+        failure {
+            echo 'Build failed!'
         }
     }
 }

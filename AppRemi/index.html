@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            position: relative; /* Ajout de la position relative pour que les éléments absolus soient positionnés par rapport à la page */
+        }
+
+        .hello {
+            position: absolute;
+            color: #333;
+            font-size: 2rem;
+            animation: fall 5s linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                top: -50px; /* Commence juste au-dessus de l'écran */
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                top: 100vh; /* Descend jusqu'au bas de la page */
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function createHelloWorld() {
+            const helloWorld = document.createElement('div');
+            helloWorld.innerText = 'Hello, World!';
+            helloWorld.classList.add('hello');
+            helloWorld.style.left = `${Math.random() * window.innerWidth}px`;
+            document.body.appendChild(helloWorld);
+
+            setTimeout(() => {
+                helloWorld.remove();
+                setTimeout(createHelloWorld, Math.random() * 3000); // Réapparition à un nouvel endroit après un délai aléatoire
+            }, 5000); // Temps d'attente avant de supprimer
+        }
+
+        setInterval(createHelloWorld, 1000); // Création de nouveaux "Hello, World!" à intervalles réguliers
+    </script>
+</body>
+</html>
