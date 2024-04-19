@@ -4,7 +4,7 @@ pipeline {
 	stages {
 		stage('Deploy') {
 			steps {
-                echo 'test moi'
+                sh 'aws ecs update-service --cluster manuel --service manuel --force-new-deployment'
 			}
 		}
 	}
