@@ -7,5 +7,19 @@ pipeline {
                 echo 'Hello World'
             }
         }
+
+        stage('Concaténation') {
+            steps {
+                bat "type *.md>manuel.md"
+
+            }
+            post {
+                success {
+                    archiveArtifacts 'manuel.md'
+                }
+            }
+        }
     }
+
+    
 }
