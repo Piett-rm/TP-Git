@@ -1,17 +1,17 @@
 pipeline {
     agent any
-
     stages {
         stage('Build') {
             steps {
-                bat "type *.md > manual.md"
+                echo  'hello le monde'
             }
         }
-
-        stage('Delivery') {
+        stage('Doc') {
             steps {
-                archiveArtifacts artifacts: 'manual.md', followSymlinks: false
+                sh 'mkdir ./doc/'
+                sh  'cat *.md > doc/README.md'
             }
         }
     }
 }
+
