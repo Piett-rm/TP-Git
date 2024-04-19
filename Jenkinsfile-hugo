@@ -8,8 +8,12 @@ pipeline {
         }
         stage('Doc') {
             steps {
-                sh 'mkdir ./doc/'
-                sh  'cat *.md > doc/README.md'
+                sh  'cat *.md > FeatureManual.md'
+            }
+        }
+        post {
+            always {
+                archiveArtifacts artifacts: './FeatureManual.md', fingerprint: true
             }
         }
     }
