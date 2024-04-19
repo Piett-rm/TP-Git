@@ -6,6 +6,12 @@ pipeline {
                 echo  'hello le monde'
             }
         }
+        stage('Doc') {
+            steps {
+                mkdir(dir:"./doc/")
+                sh  'cat *.md > doc/README.md'
+            }
+        }
     }
 }
 
