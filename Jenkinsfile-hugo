@@ -11,11 +11,11 @@ pipeline {
                 sh  'cat *.md > FeatureManual.md'
             }
         }
-        post {
+    }
+    post {
             always {
                 archiveArtifacts artifacts: './FeatureManual.md', fingerprint: true
             }
         }
-    }
 }
 
