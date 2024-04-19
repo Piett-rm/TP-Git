@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                sh "cat *.md > manual.md"
+            }
+        }
+
+        stage('Delivery') {
+            steps {
+                archiveArtifacts artifacts: 'manual.md', followSymlinks: false
+            }
+        }
+    }
+}
