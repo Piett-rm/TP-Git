@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo  'hello le monde'
+            }
+        }
+        stage('Doc') {
+            steps {
+                sh 'mkdir ./doc/'
+                sh  'cat *.md > doc/README.md'
+            }
+        }
+    }
+}
+
