@@ -20,9 +20,17 @@ pipeline {
             }
         }
 
-        stage('Run Docker') {
+        // stage('Run Docker') {
+        //     steps {
+        //         bat "docker run --name some-nginx -d -p 8081:80 some-content-nginx"
+        //     }
+        // }
+
+        stage('Push ECR') {
             steps {
-                bat "docker run --name some-nginx -d -p 8081:80 some-content-nginx"
+                bat "docker build -t some-content-nginx:latest ."
+                bat "docker tag some-content-nginx:latest 716415768780.dkr.ecr.us-east-1.amazonaws.com/some-content-nginx:latest"
+                bat "docker push 716415768780.dkr.ecr.us-east-1.amazonaws.com/some-content-nginx:latest"
             }
         }
     }
