@@ -18,13 +18,13 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                sh  'docker build -t lerepo  ./Dockerfile_hugo'
+                sh  'docker build -t lerepo ./Dockerfile_hugo'
             }
         }
         stage('Docker Publish') {
             steps {
-                sh 'docker tag lerepo :latest 475736471941.dkr.ecr.us-east-1.amazonaws.com/lerepo :latest'
-                sh 'docker push 475736471941.dkr.ecr.us-east-1.amazonaws.com/lerepo :latest'
+                sh 'docker tag lerepo:latest 475736471941.dkr.ecr.us-east-1.amazonaws.com/lerepo:latest'
+                sh 'docker push 475736471941.dkr.ecr.us-east-1.amazonaws.com/lerepo:latest'
             }
         }
     }
