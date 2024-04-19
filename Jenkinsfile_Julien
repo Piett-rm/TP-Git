@@ -9,8 +9,10 @@ pipeline {
                 }
             }
 
-            post {
-                archiveArtifacts './combined_readme.md'
+             post {
+                success {
+                    archiveArtifacts './combined_readme.md'
+                }
             }
         }
     }
