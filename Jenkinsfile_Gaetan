@@ -16,12 +16,14 @@ pipeline {
 		}
 		stage('Docker build and publish') {
 			steps {
-				sh '''
-					docker build -t epsi-alpine:latest .
-					docker tag epsi-alpine:latest
-					536826959354.dkr.ecr.us-east-1.amazonaws.com/epsi-alpine:latest
-					docker push 536826959354.dkr.ecr.us-east-1.amazonaws.com/epsi-alpine:latest
-				'''
+				dir('./Docker_Gaetan') {
+					sh '''
+						docker build -t epsi-alpine:latest .
+						docker tag epsi-alpine:latest
+						536826959354.dkr.ecr.us-east-1.amazonaws.com/epsi-alpine:latest
+						docker push 536826959354.dkr.ecr.us-east-1.amazonaws.com/epsi-alpine:latest
+					'''
+				}
 			}
 		}
 	}
