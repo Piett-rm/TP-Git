@@ -1,2 +1,2 @@
 Hello Epsi ! 
-Début du README
+Début du README de Julien Vanhauwaert.
