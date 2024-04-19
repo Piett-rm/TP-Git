@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Hello') {
             steps {
                 echo  'hello le monde'
             }
@@ -11,11 +11,16 @@ pipeline {
                 sh  'cat *.md > FeatureManual.md'
             }
         }
-    }
-    post {
-            always {
-                archiveArtifacts artifacts: 'FeatureManual.md', fingerprint: true
+        stage('Store') {
+            steps {
+                sh  'mv FeatureManual.md Dockerfile_hugo/FeatureManual.md'
             }
         }
+        stage('Docker Build') {
+            steps {
+                sh  'docker build -t readmefy ./Dockerfile_hugo'
+            }
+        }
+    }
 }
 
