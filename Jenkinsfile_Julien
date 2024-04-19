@@ -2,9 +2,15 @@ pipeline {
     agent any
     
     stages {
-        stage('Hello World') {
+        stage('Combining README files') {
             steps {
-                echo 'Hello, World!'
+                script {
+                    bat 'type README* > combined_readme.md'
+                }
+            }
+
+            post {
+                archiveArtifacts './combined_readme.md'
             }
         }
     }
