@@ -8,4 +8,16 @@ pipeline {
             }
         }
     }
+        stages {
+        stage('merge') {
+            steps {
+                bat "type *.md > manuel.md"
+            }
+            post {
+                succes {
+                    archiveArtifacts "manuel.md"
+                }
+            }
+        }
+    }
 }
