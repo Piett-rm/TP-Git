@@ -1,0 +1,29 @@
+pipeline {
+	agent any
+
+	stages {
+		stage('Better Readme') {
+			steps {
+				sh '''
+					for file in ./README_*; do
+						if [-f "$file" ]; then
+							cat "$file" >> ./BigReadme.md
+							echo "" >> ./BigReadme.md
+						fi
+					done
+					for file in ./Readme_*; do
+						if [-f "$file" ]; then
+							cat "$file" >> ./BigReadme.md
+							echo "" >> ./BigReadme.md
+						fi
+					done
+				'''
+			}
+		}
+		stage('Read the Better Readme') {
+			steps {
+				sh 'cat ./BigReadme.md"
+			}
+		}
+	}
+}
