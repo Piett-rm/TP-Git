@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh "cat *.md > manual.md"
+                bat "type *.md > manual.md"
             }
         }
 
